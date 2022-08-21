@@ -61,42 +61,7 @@ void parseCommand(String commandNameString, String commandValueString)
       Serial.print (commandValueString);
       Serial.println ("]");
       setPWM(commandNameString.substring(2,3).toInt(),commandValueString.toInt());
-    } else if (commandNameString.startsWith(CMD_LED_SWITCH)) {
-      Serial.print (F("Command LED SWITCH received. Set to ["));
-      Serial.print (commandValueString);
-      Serial.println ("]");
-      MainLed_SwitchCommand(commandValueString.toInt());
-    } else if (commandNameString.startsWith(CMD_LED_COLOR)) {
-      Serial.print (F("Command SET LED COLOR received. Set to ["));
-      Serial.print (commandValueString);
-      Serial.println ("]");
-      MainLed_ColorCommand(commandValueString.toInt());
 
-
-    // Button
-    } else if (commandNameString.startsWith(CMD_BTN_SHORTPESS)) {
-      Serial.println (F("Command RAISE BUTTON SHORT PRESS EVENT received"));
-      EVENT_Button_Pressed_Short = true;
-    } else if (commandNameString.startsWith(CMD_BTN_LONGPESS)) {
-      Serial.println (F("Command RAISE BUTTON LONG PRESS EVENT received"));
-      EVENT_Button_Pressed_Long= true;
-    } else if (commandNameString.startsWith(CMD_BTN_VERYLONGPESS)) {
-      Serial.println (F("Command RAISE BUTTON VERY LONG PRESS EVENT received"));
-      EVENT_Button_Pressed_VeryLong= true;
-    } else if (commandNameString.startsWith(CMD_BTN_CLEAR_STATUS)) {
-      Serial.println (F("Command CLEAR BUTTON STATUS received"));
-      Button_Status = 0;
-    
-    // Button events routines
-    } else if (commandNameString.startsWith(CMD_EMERGENCY_HALT_FLAG_CLEAR)) {
-      Serial.println (F("Command CLEAR EMERGENCY HALT CALLED FLAG received"));
-      clearEmergencyHaltRoutine();
-    } else if (commandNameString.startsWith(CMD_SOFTSTOP_FINISH_ROUTINE)) {
-      Serial.println (F("Command FINISH SOFT SOFT ROUTINE received"));
-      finishSoftStopRoutine();
-    } else if (commandNameString.startsWith(CMD_SOFTSTOP_FLAGS_CLEAR)) {
-      Serial.println (F("Command CLEAR SOFT STOP FLAGS received"));
-      clearSoftStopFlags();
 
     // SHT Heater
     } else if (commandNameString.startsWith(CMD_SHT_HEATER_ON)) {

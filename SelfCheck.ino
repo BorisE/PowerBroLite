@@ -48,20 +48,6 @@ int selfCheckHardware()
       retStatus = max(retStatus,    SELFCHECK_WARNING_ERROR);
     }
 
-    /* 2.Check MCP 2 present */
-    checkStatusMCP2 = check_MCP_2();
-    error = checkStatusMCP2;
-    if (error == 1) {
-      Serial.println(F("!!! MCP23017_2 not found !!!"));
-      retStatus = max(retStatus,    SELFCHECK_CRITICAL_ERROR);
-    } else if (error == 2) {
-      Serial.println(F("!!! MCP23017_2 malfunction (test pin not set) !!!"));
-      retStatus = max(retStatus,    SELFCHECK_CRITICAL_ERROR);
-    } else if (error > 0) {
-      Serial.println(F("!!! MCP23017_2 unknown error !!!"));
-      retStatus = max(retStatus,    SELFCHECK_WARNING_ERROR);
-    }
-
     /* 3.Check INA */
     String INA_string = "";
     checkStatusINA = 0;
@@ -125,7 +111,6 @@ int selfCheckHardware()
     
     hardwareERRstatus = retStatus;
     hardwareERRstring = String(checkStatusMCP1);
-    hardwareERRstring += String(checkStatusMCP2);
     hardwareERRstring += String(checkStatusINA);
     hardwareERRstring += String(checkStatusMEM);
     hardwareERRstring += String(checkStatusMLX);
@@ -160,26 +145,6 @@ uint8_t check_MCP_1()
 
     // check if the test pin is still set
     uint8_t readpin = mcp1.digitalRead(MCP1_TEST_PIN);
-    //Serial.print("readpin=");
-    //Serial.println(readpin);
-    if (readpin==0) {
-      return 2;
-    }
-
-    return 0;
-}
-
-uint8_t check_MCP_2()
-{
-    // 1.Check MCP 2 present
-    Wire.beginTransmission(MCP_2_ADDR);
-    byte error = Wire.endTransmission();
-    if (error > 0) {
-      return 1;
-    }
-
-    // check if the test pin is still set
-    uint8_t readpin = mcp2.digitalRead(MCP2_TEST_PIN);
     //Serial.print("readpin=");
     //Serial.println(readpin);
     if (readpin==0) {

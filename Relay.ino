@@ -7,40 +7,22 @@ bool getRelayStatus(uint8_t relayBlock, uint8_t relay)
 {
   switch (relay) {
     case 1: 
-      if (relayBlock==1)
-        return (mcp1.digitalRead(RELAY1_CH1_PIN) == RELAY1_ON_STATE[relay]);
-      else 
-        return (mcp2.digitalRead(RELAY2_CH1_PIN) == RELAY2_ON_STATE[relay]);
+      return (mcp1.digitalRead(RELAY1_CH1_PIN) == RELAY1_ON_STATE[relay]);
       break;
     case 2: 
-      if (relayBlock==1)
-        return (mcp1.digitalRead(RELAY1_CH2_PIN) == RELAY1_ON_STATE[relay]);
-      else 
-        return (mcp2.digitalRead(RELAY2_CH2_PIN) == RELAY2_ON_STATE[relay]);
+      return (mcp1.digitalRead(RELAY1_CH2_PIN) == RELAY1_ON_STATE[relay]);
       break;
     case 3: 
-      if (relayBlock==1)
-        return (mcp1.digitalRead(RELAY1_CH3_PIN) == RELAY1_ON_STATE[relay]);
-      else 
-        return (mcp2.digitalRead(RELAY2_CH3_PIN) == RELAY2_ON_STATE[relay]);
+      return (mcp1.digitalRead(RELAY1_CH3_PIN) == RELAY1_ON_STATE[relay]);
       break;
     case 4: 
-      if (relayBlock==1)
-        return (mcp1.digitalRead(RELAY1_CH4_PIN) == RELAY1_ON_STATE[relay]);
-      else 
-        return (mcp2.digitalRead(RELAY2_CH4_PIN) == RELAY2_ON_STATE[relay]);
+      return (mcp1.digitalRead(RELAY1_CH4_PIN) == RELAY1_ON_STATE[relay]);
       break;
     case 5: 
-      if (relayBlock==1)
-        return (mcp1.digitalRead(RELAY1_CH5_PIN) == RELAY1_ON_STATE[relay]);
-      else 
-        return (mcp2.digitalRead(RELAY2_CH5_PIN) == RELAY2_ON_STATE[relay]);
+      return (mcp1.digitalRead(RELAY1_CH5_PIN) == RELAY1_ON_STATE[relay]);
       break;
     case 6: 
-      if (relayBlock==1)
-        return (mcp1.digitalRead(RELAY1_CH6_PIN) == RELAY1_ON_STATE[relay]);
-      else 
-        return (mcp2.digitalRead(RELAY2_CH6_PIN) == RELAY2_ON_STATE[relay]);
+      return (mcp1.digitalRead(RELAY1_CH6_PIN) == RELAY1_ON_STATE[relay]);
       break;
     default:
       #ifdef DEBUGF
@@ -73,40 +55,22 @@ void setRelaySwitch(uint8_t relayBlock, uint8_t relay, uint8_t stat)
   #endif
   switch (relay) {
     case 1: 
-      if (relayBlock==1)
-        return mcp1.digitalWrite(RELAY1_CH1_PIN, stat);
-      else 
-        return mcp2.digitalWrite(RELAY2_CH1_PIN, stat);
+      return mcp1.digitalWrite(RELAY1_CH1_PIN, stat);
       break;
     case 2: 
-      if (relayBlock==1)
-        return mcp1.digitalWrite(RELAY1_CH2_PIN, stat);
-      else 
-        return mcp2.digitalWrite(RELAY2_CH2_PIN, stat);
+      return mcp1.digitalWrite(RELAY1_CH2_PIN, stat);
       break;
     case 3: 
-      if (relayBlock==1)
-        return mcp1.digitalWrite(RELAY1_CH3_PIN, stat);
-      else 
-        return mcp2.digitalWrite(RELAY2_CH3_PIN, stat);
+      return mcp1.digitalWrite(RELAY1_CH3_PIN, stat);
       break;
     case 4: 
-      if (relayBlock==1)
-        return mcp1.digitalWrite(RELAY1_CH4_PIN, stat);
-      else 
-        return mcp2.digitalWrite(RELAY2_CH4_PIN, stat);
+      return mcp1.digitalWrite(RELAY1_CH4_PIN, stat);
       break;
     case 5: 
-      if (relayBlock==1)
-        return mcp1.digitalWrite(RELAY1_CH5_PIN, stat);
-      else 
-        return mcp2.digitalWrite(RELAY2_CH5_PIN, stat);
+      return mcp1.digitalWrite(RELAY1_CH5_PIN, stat);
       break;
     case 6: 
-      if (relayBlock==1)
-        return mcp1.digitalWrite(RELAY1_CH6_PIN, stat);
-      else 
-        return mcp2.digitalWrite(RELAY2_CH6_PIN, stat);
+      return mcp1.digitalWrite(RELAY1_CH6_PIN, stat);
       break;
   }
 }
@@ -157,19 +121,6 @@ uint8_t Relay1StatusAll()
     return ret;
 }
 
-/*
- * Returns RELAY 2 Status for each channel in one string
- * 1 - ON (CLOSED), 0 - OFF (OPENED)
- */
-uint8_t Relay2StatusAll()
-{
-    uint8_t ret = 0;
-    for (int i=1; i<=6; i++)
-       bitWrite(ret, i-1, getRelayStatus(2, i)); // starts from least significant, ie. rightmost, ie. RL 1 = 0b00000001, RL 2 = 0b00000010, etc)
-    
-    return ret;
-}
-
 
 /**************************************************
  * Function used to override software switching off
@@ -198,9 +149,6 @@ void startEmergencyHaltRoutine()
     RelayOff(1,5);
     RelayOff(1,6);
 
-    MainLedTicker.detach();
-    MainLed_SetColor(Red);
-    MainLed_ON();
     EmergencyHalt_Fired = 1;
 }
 /**************************************************
@@ -219,9 +167,6 @@ void clearEmergencyHaltRoutine()
     // Clear flags
     EmergencyHalt_Fired = 0;
 
-    // Switch off leds
-    MainLedTicker.detach();
-    MainLed_OFF();
 }
 
 /**************************************************
@@ -244,8 +189,6 @@ void startSoftStopRoutine()
     // Clear EmergencyHalt flag (erase memory of beeing run)
     EmergencyHalt_Fired = 0;
     
-    MainLed_SetColor(Yellow);
-    MainLedTicker.attach_ms(1000, MainLed_Blink);
 }
 
 /**************************************************
@@ -267,10 +210,6 @@ void finishSoftStopRoutine()
     SoftStop_NeedToStart = 0;
     SoftStop_WasRun = 1;
 
-    // Switch led to indicate that routine was finished
-    MainLedTicker.detach();
-    MainLed_SetColor(Yellow);
-    MainLed_ON();
 }
 /**************************************************
  * Function used to clear markers of SoftStop routine runing (LED and SoftStop_WasRun)
@@ -291,7 +230,4 @@ void clearSoftStopFlags()
     SoftStop_NeedToStart = 0;
     SoftStop_WasRun = 0;
 
-    // Switch off leds
-    MainLedTicker.detach();
-    MainLed_OFF();
 }

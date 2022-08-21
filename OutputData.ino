@@ -98,21 +98,6 @@ void SensorsSerial_Often()
       Serial.println(SENSOR_OUT_END);
   }
 
-  //BTN
-  Serial.print(SENSOR_OUT_START);
-  Serial.print(SENSOR_BUTTON_STATUS ":");
-  Serial.print(Button_Status);
-  Serial.println(SENSOR_OUT_END);
-
-  //LED
-  Serial.print(SENSOR_OUT_START);
-  Serial.print(SENSOR_LED_STATUS ":");
-  Serial.print(MainLed_Status);
-  Serial.println(SENSOR_OUT_END);
-  Serial.print(SENSOR_OUT_START);
-  Serial.print(SENSOR_LED_COLOR ":");
-  Serial.print(MainLed_Color);
-  Serial.println(SENSOR_OUT_END);
 
   //SHT
   #ifdef ENABLE_SHT31
@@ -261,11 +246,6 @@ String SensorsJSON()
       page += "\"" SENSOR_INA_CURRENT_PREFIX + String(i) + "\": \"" + String(ina_cur[i],3) + "\",";
       page += "\"" SENSOR_INA_POWER_PREFIX + String(i) + "\": \"" + String(ina_pwr[i],3) + "\",";
   }
-
-  page += "\"" SENSOR_BUTTON_STATUS "\": "          + String(Button_Status) + ",";
-
-  page += "\"" SENSOR_LED_STATUS "\": "             + String(MainLed_Status) + ",";
-  page += "\"" SENSOR_LED_COLOR "\": "              + String(MainLed_Color) + ",";
 
   #ifdef ENABLE_SHT31
   page += "\"" SENSOR_SHT_TEMPERATURE "\": \""      + String(SHT_T, 1) + "\",";

@@ -20,25 +20,16 @@ GPIO6-GPIO11 - flash pins
 /*************************************************************
 * CONFIGURATION
 *************************************************************/
-#define ENABLE_MLX90614                                                       // comment this line out if MLX90614 sensor not present
-#define ENABLE_SHT31                                                          // comment this line out if SHT31 sensor not present
-#define NUMBER_OF_SENSORS                           2                         // correct this when commenting out sensor 
+//#define ENABLE_MLX90614                                                       // comment this line out if MLX90614 sensor not present
+//#define ENABLE_SHT31                                                          // comment this line out if SHT31 sensor not present
+#define NUMBER_OF_SENSORS                           0                         // correct this when commenting out sensor 
 /*************************************************************
 * I2C SETTINGS
 *************************************************************/
 /* I2C Adresses */
 #define MCP_1_ADDR                                  0x20
-#define MCP_2_ADDR                                  0x24
-
-#define INA_1_ADDR                                  0x40
 
 #define INA_MAIN_ADDR                               0x40
-#define INA_MOSFET_ADDR                             0x44
-#define INA_USB_ADDR                                0x48
-#define INA_REL1_5A_ADDR                            0x42
-#define INA_REL2_5A_ADDR                            0x45
-#define INA_REL3_3A_ADDR                            0x41
-#define INA_REL4_3A_ADDR                            0x46
 
 #define SHT_ADDR                                    0x44                      // same as MOSFET addr and this give us a problem :(
 #define MLX90614_I2C_ADDR                           0x5A
@@ -57,16 +48,7 @@ GPIO6-GPIO11 - flash pins
 /* MCP pins*/
 // Self test pins
 #define MCP1_TEST_PIN                               8                         // test pin for testing of connection
-#define MCP2_TEST_PIN                               7                         // test pin for testing of connection
 
-// RGB Led
-#define MAINLED_R_PIN                               14                        // on MCP, change it name in functions
-#define MAINLED_G_PIN                               15                        // on MCP, change it name in functions
-#define MAINLED_B_PIN                               7                         // on MCP, change it name in functions
-
-// Button
-#define BUTTON_PIN                                  8                         // on MCP, change it name in functions
-#define BUTTON_LED_PIN                              9                         // on MCP, change it name in functions
 
 // Relay PINs
 #define RELAY1_CH1_PIN                              0                         // on MCP, change it name in functions
@@ -75,13 +57,6 @@ GPIO6-GPIO11 - flash pins
 #define RELAY1_CH4_PIN                              3                         // on MCP, change it name in functions
 #define RELAY1_CH5_PIN                              4                         // on MCP, change it name in functions
 #define RELAY1_CH6_PIN                              5                         // on MCP, change it name in functions
-
-#define RELAY2_CH1_PIN                              0                         // on MCP, change it name in functions
-#define RELAY2_CH2_PIN                              1                         // on MCP, change it name in functions
-#define RELAY2_CH3_PIN                              2                         // on MCP, change it name in functions
-#define RELAY2_CH4_PIN                              3                         // on MCP, change it name in functions
-#define RELAY2_CH5_PIN                              4                         // on MCP, change it name in functions
-#define RELAY2_CH6_PIN                              5                         // on MCP, change it name in functions
 
 /*************************************************************
 * DEBUG CONFIGURATION
@@ -119,12 +94,6 @@ uint8_t RELAY2_ON_STATE[7] {
 #define INA_COUNT 7
 INA219 INA_OBJ[] {
     INA219(0.00909f,  10.0f,  INA_MAIN_ADDR),
-    INA219(0.11f,     3.2f,   INA_MOSFET_ADDR),
-    INA219(0.1f,      3.2f,   INA_USB_ADDR),
-    INA219(0.035f,    5.0f,   INA_REL1_5A_ADDR),
-    INA219(0.01f,     5.0f,   INA_REL2_5A_ADDR),
-    INA219(0.1f,      3.0f,   INA_REL3_3A_ADDR),
-    INA219(0.1f,      3.0f,   INA_REL4_3A_ADDR),
 };
 //INA219 ina(0.035f, 2.0f, 0x41);   //def (0.1, 3.2, 0x40) 0.1R/3.2A/0x40 ADDR
 
