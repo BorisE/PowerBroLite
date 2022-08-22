@@ -63,6 +63,7 @@ void parseCommand(String commandNameString, String commandValueString)
       setPWM(commandNameString.substring(2,3).toInt(),commandValueString.toInt());
 
 
+#ifdef ENABLE_SHT31
     // SHT Heater
     } else if (commandNameString.startsWith(CMD_SHT_HEATER_ON)) {
       Serial.println (F("Command SWITCH SHT_HEATER ON received"));
@@ -70,6 +71,7 @@ void parseCommand(String commandNameString, String commandValueString)
     } else if (commandNameString.startsWith(CMD_SHT_HEATER_OFF)) {
       Serial.println (F("Command SWITCH SHT_HEATER OFF received"));
       SHT_Heater_OFF();
+#endif
    
    // ESP Core commands
     } else if (commandNameString.startsWith(CMD_ESP_REBOOT)) {

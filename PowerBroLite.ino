@@ -1,17 +1,19 @@
 /**
-    POWERBOX firmware
+    POWERBRO firmware
     (c) 2022 by Boris Emchenko
-    HW rev 1.2
+    HW rev 2.0 lite
 
     TODO:
-    - need to delete button
-    - all exept one INA
-    - one MCP
-    - main led
+      - webpage optimization to lite HW architecture
+      - code optimization after removing unused blocks
     
     Changes:
-       ver 0.1 2022/08/22 [402301/36464]
+       ver 0.1 2022/08/22 [388028/35436]
        - starting from fw 2.9
+       - removed button events and all stuff
+       - removed main led routines
+       - one MCP, and one relay block
+       - all exept one INA
 */
 
 //Compile version
@@ -122,6 +124,7 @@ unsigned long     currentTime                 = 0;
 
 String            serialString                = "";               // a String to hold serial incoming data
 bool              serialStringComplete        = false;            // whether the string is complete
+
 /***********1*********************************************
 *     SETUP
 ********************************************************/
