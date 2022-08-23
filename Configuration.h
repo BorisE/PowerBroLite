@@ -47,16 +47,16 @@ GPIO6-GPIO11 - flash pins
 
 /* MCP pins*/
 // Self test pins
-#define MCP1_TEST_PIN                               8                         // test pin for testing of connection
+#define MCP1_TEST_PIN                               7                         // test pin for testing of connection
 
 
 // Relay PINs
-#define RELAY1_CH1_PIN                              0                         // on MCP, change it name in functions
-#define RELAY1_CH2_PIN                              1                         // on MCP, change it name in functions
-#define RELAY1_CH3_PIN                              2                         // on MCP, change it name in functions
-#define RELAY1_CH4_PIN                              3                         // on MCP, change it name in functions
-#define RELAY1_CH5_PIN                              4                         // on MCP, change it name in functions
-#define RELAY1_CH6_PIN                              5                         // on MCP, change it name in functions
+#define RELAY1_CH1_PIN                              8                         // on MCP, change it name in functions
+#define RELAY1_CH2_PIN                              9                         // on MCP, change it name in functions
+#define RELAY1_CH3_PIN                              10                         // on MCP, change it name in functions
+#define RELAY1_CH4_PIN                              11                         // on MCP, change it name in functions
+#define RELAY1_CH5_PIN                              12                         // on MCP, change it name in functions
+#define RELAY1_CH6_PIN                              13                         // on MCP, change it name in functions
 
 /*************************************************************
 * DEBUG CONFIGURATION
@@ -91,7 +91,7 @@ uint8_t RELAY2_ON_STATE[7] {
 /*************************************************************
 * INA SENSOR SETTING
 *************************************************************/
-#define INA_COUNT 7
+#define INA_COUNT 1
 INA219 INA_OBJ[] {
     INA219(0.00909f,  10.0f,  INA_MAIN_ADDR),
 };

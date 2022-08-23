@@ -49,12 +49,6 @@ void SensorsSerial_Often()
   Serial.print(Relay1StatusFlags, BIN);
   Serial.println(SENSOR_OUT_END);
 
-  //Relay 2
-  Serial.print(SENSOR_OUT_START);
-  Serial.print(SENSOR_RELAY_STATUS(2) ":");
-  Serial.print(Relay2StatusFlags, BIN);
-  Serial.println(SENSOR_OUT_END);
-
   //PWM1
   Serial.print(SENSOR_OUT_START);
   Serial.print(SENSOR_PWM(1) ":");

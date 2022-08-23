@@ -5,9 +5,13 @@
 
     TODO:
       - webpage optimization to lite HW architecture
-      - code optimization after removing unused blocks
+      - code optimization after removing unused blocks (relay block, button vars and emergency routines)
+      - return something like "main led" (to HW and then to code)
+      - return PWM block
     
     Changes:
+       ver 0.2 2022/08/22 [391937/35836]
+       - some more cleanup. Code runs!
        ver 0.1 2022/08/22 [388028/35436]
        - starting from fw 2.9
        - removed button events and all stuff
@@ -17,7 +21,7 @@
 */
 
 //Compile version
-#define VERSION "0.1"
+#define VERSION "0.2"
 #define VERSION_DATE "20220822"
  
 #include <Ticker.h>
