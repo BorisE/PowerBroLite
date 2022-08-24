@@ -96,7 +96,7 @@ void setRelaySwitch_Str(uint8_t relayBlock, uint8_t relay, const char* relayTarg
  */
 void RelayOn(uint8_t relayBlock, uint8_t relay) 
 {
-  setRelaySwitch(relayBlock, relay, (relayBlock == 1 ? RELAY1_ON_STATE[relay] : RELAY2_ON_STATE[relay]));
+  setRelaySwitch(relayBlock, relay, RELAY1_ON_STATE[relay]);
 }
 
 /*
@@ -104,7 +104,7 @@ void RelayOn(uint8_t relayBlock, uint8_t relay)
  */
 void RelayOff(uint8_t relayBlock, uint8_t relay) 
 {
-  setRelaySwitch(relayBlock, relay, !(relayBlock == 1 ? RELAY1_ON_STATE[relay] : RELAY2_ON_STATE[relay]));
+  setRelaySwitch(relayBlock, relay, RELAY1_ON_STATE[relay]);
 }
 
 

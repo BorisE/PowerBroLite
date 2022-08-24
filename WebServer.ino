@@ -55,29 +55,6 @@ const char HTTP_HTML_RELAYTABLE1[] PROGMEM = "<h3>Power</h3><table><thead>\
       </tr>\n\
     </tbody></table>\n";
 
-const char HTTP_HTML_RELAYTABLE2[] PROGMEM = "<h3>USB</h3><table><thead>\
-        <tr>\
-          <th>Relay 1</th><th>Relay 2</th><th>Relay 3</th><th>Relay 4</th><th>Relay 5</th><th>Relay 6</th>\
-        </tr>\
-    </thead><tbody>\n\
-      <tr>\
-        <td id='RL21'>{RL21}</td>\
-        <td id='RL22'>{RL22}</td>\
-        <td id='RL23'>{RL23}</td>\
-        <td id='RL24'>{RL24}</td>\
-        <td id='RL25'>{RL25}</td>\
-        <td id='RL26'>{RL26}</td>\
-      </tr>\n\
-      <tr>\
-        <td><button onclick=\"relaysend(21,0);\">OFF</button><button onclick=\"relaysend(21,1);\">ON</button><button onclick=\"relaytoggle(21);\">Break</button></td>\
-        <td><button onclick=\"relaysend(22,0);\">OFF</button><button onclick=\"relaysend(22,1);\">ON</button><button onclick=\"relaytoggle(22);\">Break</button></td>\
-        <td><button onclick=\"relaysend(23,0);\">OFF</button><button onclick=\"relaysend(23,1);\">ON</button><button onclick=\"relaytoggle(23);\">Break</button></td>\
-        <td><button onclick=\"relaysend(24,0);\">OFF</button><button onclick=\"relaysend(24,1);\">ON</button><button onclick=\"relaytoggle(24);\">Break</button></td>\
-        <td><button onclick=\"relaysend(25,0);\">OFF</button><button onclick=\"relaysend(25,1);\">ON</button><button onclick=\"relaytoggle(25);\">Break</button></td>\
-        <td><button onclick=\"relaysend(26,0);\">OFF</button><button onclick=\"relaysend(26,1);\">ON</button><button onclick=\"relaytoggle(26);\">Break</button></td>\
-      </tr>\n\
-    </tbody></table>\n";
-
 /*
  INA SENSORS TABLE TEMPLATE
  */
@@ -89,32 +66,14 @@ const char HTTP_HTML_SENSTABLE[] PROGMEM = "<h3>Voltage/Current</h3><table><thea
       <tr>\
         <td>Voltage (V)</td>\
         <td id='VL0'>{VL0}</td>\
-        <td id='VL3'>{VL3}</td>\
-        <td id='VL4'>{VL4}</td>\
-        <td id='VL5'>{VL5}</td>\
-        <td id='VL6'>{VL6}</td>\
-        <td id='VL1'>{VL1}</td>\
-        <td id='VL2'>{VL2}</td>\
       </tr>\n\
       <tr>\
         <td>Current (A)</td>\
         <td id='CR0'>{CR0}</td>\
-        <td id='CR3'>{CR3}</td>\
-        <td id='CR4'>{CR4}</td>\
-        <td id='CR5'>{CR5}</td>\
-        <td id='CR6'>{CR6}</td>\
-        <td id='CR1'>{CR1}</td>\
-        <td id='CR2'>{CR2}</td>\
       </tr>\n\
       <tr>\
         <td>Power (W)</td>\
         <td id='PW0'>{PW0}</td>\
-        <td id='PW3'>{PW3}</td>\
-        <td id='PW4'>{PW4}</td>\
-        <td id='PW5'>{PW5}</td>\
-        <td id='PW6'>{PW6}</td>\
-        <td id='PW1'>{PW1}</td>\
-        <td id='PW2'>{PW2}</td>\
       </tr>\n\
     </tbody></table>\n";
 
@@ -139,33 +98,6 @@ const char HTTP_HTML_PWM[] PROGMEM = "<h3>PWM</h3><table><tbody>\n\
       </tr>\n\
     </tbody></table>\n";
 
-/*
- BUTTON
- */
-const char HTTP_HTML_BUTTON[] PROGMEM = "<h3>Buttons</h3><table><tbody>\n\
-      <tr>\
-        <td>Button status</td>\
-        <td style='min-width:80px'><span id='BTN'>{BTN}</span> [<a href='javascript:;' onclick=\"commandSend('"CMD_BTN_CLEAR_STATUS"');\">CLR</a>]</td>\
-        <td><button onclick=\"commandSend('"CMD_BTN_SHORTPESS"');\">CANCEL</button></td>\
-        <td style='min-width:80px'><button style='min-width:80px' onclick=\"commandSend('"CMD_BTN_LONGPESS"');\">SOFT STOP</button></td>\
-        <td><button onclick=\"commandSend('"CMD_BTN_VERYLONGPESS"');\">HALT</button></td>\
-      </tr>\n\
-    </tbody></table>\n\
-    <table><tbody>\
-      <tr>\
-        <td rowspan=2>SoftStop routine</td>\
-        <td>Need to run: <span id='SSR'>{SSR}</span></td>\
-        <td  rowspan=2>[<a href='javascript:;' onclick=\"commandSend('"CMD_SOFTSTOP_FLAGS_CLEAR"');\">CLR</a>]</td>\
-      </tr>\n\
-      <tr>\
-        <td>Was run: <span id='SSF'>{SSF}</span></td>\
-      </tr>\n\
-      <tr>\
-        <td>Emergency Halt routine</td>\
-        <td>Was run: <span id='EHF'>{EHF}</span></td>\
-        <td>[<a href='javascript:;' onclick=\"commandSend('"CMD_EMERGENCY_HALT_FLAG_CLEAR"');\">CLR</a>]</td>\
-      </tr>\n\
-    </tbody></table>\n";
 
 /*
  SENSORS
@@ -202,33 +134,6 @@ const char HTTP_HTML_SENSORS_MLX[] PROGMEM = "\
 #endif
 
 /*
- LED TABLE TEMPLATE
- */
-const char HTTP_HTML_LEDTABLE[] PROGMEM = "<h3>Led test</h3><table><thead>\
-        <tr>\
-          <th>OFF</th>\
-          <th>Red</th>\
-          <th>Green</th>\
-          <th>Blue</th>\
-          <th>Yellow</th>\
-          <th>Cyan</th>\
-          <th>Magenta</th>\
-          <th>White</th>\
-        </tr>\
-    </thead><tbody>\n\
-      <tr>\
-        <td id='LEC7'><button onclick=\"setcolor(7);\">OFF</button></td>\
-        <td id='LEC0'><button onclick=\"setcolor(0);\">ON</button></td>\
-        <td id='LEC1'><button onclick=\"setcolor(1);\">ON</button></td>\
-        <td id='LEC2'><button onclick=\"setcolor(2);\">ON</button></td>\
-        <td id='LEC3'><button onclick=\"setcolor(3);\">ON</button></td>\
-        <td id='LEC4'><button onclick=\"setcolor(4);\">ON</button></td>\
-        <td id='LEC5'><button onclick=\"setcolor(5);\">ON</button></td>\
-        <td id='LEC6'><button onclick=\"setcolor(6);\">ON</button></td>\
-      </tr>\n\
-    </tbody></table>\n";
-
-/*
  ERROR DISPLAYING
  */
 const char HTTP_HTML_ERROR[] PROGMEM = "<h3>Self diagnostics</h3><table>\n\
@@ -238,19 +143,12 @@ const char HTTP_HTML_ERROR[] PROGMEM = "<h3>Self diagnostics</h3><table>\n\
       <thead>\
         <tr>\
           <th>MCP1</th>\
-          <th>MCP2</th>\
           <th>INA</th>\
           <th>MEM</th>\
           <th>MLX</th>\
           <th>SHT</th>\
           <th>-</th>\
           <th>INA0</th>\
-          <th>INA1</th>\
-          <th>INA2</th>\
-          <th>INA3</th>\
-          <th>INA4</th>\
-          <th>INA5</th>\
-          <th>INA6</th>\
         </tr>\
     </thead><tbody>\n\
       <tr>\
@@ -259,15 +157,8 @@ const char HTTP_HTML_ERROR[] PROGMEM = "<h3>Self diagnostics</h3><table>\n\
         <td id='ERR2'>0</td>\
         <td id='ERR3'>0</td>\
         <td id='ERR4'>0</td>\
-        <td id='ERR5'>0</td>\
         <td>-</td>\
         <td id='ERRINA0'>0</td>\
-        <td id='ERRINA1'>0</td>\
-        <td id='ERRINA2'>0</td>\
-        <td id='ERRINA3'>0</td>\
-        <td id='ERRINA4'>0</td>\
-        <td id='ERRINA5'>0</td>\
-        <td id='ERRINA6'>0</td>\
       </tr>\n\
     </tbody></table>\n";
    
@@ -288,8 +179,6 @@ const char HTTP_HTML_UPDATE_MAIN1[] PROGMEM = "<script>\
         for( i=1; i<= 6; i++){\
           document.getElementById('RL1'+i).innerHTML=(getData['"SENSOR_RELAY_STATUS(1)"'+i] == 1 ? 'ON' : 'OFF');\
           document.getElementById('RL1'+i).style.backgroundColor = (getData['"SENSOR_RELAY_STATUS(1)"'+i] == 1? '#26b569' :'#b5262b');\
-          document.getElementById('RL2'+i).innerHTML=(getData['"SENSOR_RELAY_STATUS(2)"'+i] == 1 ? 'ON' : 'OFF');\
-          document.getElementById('RL2'+i).style.backgroundColor = (getData['"SENSOR_RELAY_STATUS(2)"'+i] == 1? '#26b569' :'#b5262b');\
         }\n\
         document.getElementById('PWM1').innerHTML=getData['"SENSOR_PWM(1)"'];\
         if (!pwm1edit) document.getElementById('PWM1set').value=getData['"SENSOR_PWM(1)"'];\
@@ -297,28 +186,18 @@ const char HTTP_HTML_UPDATE_MAIN1[] PROGMEM = "<script>\
         if (!pwm2edit) document.getElementById('PWM2set').value=getData['"SENSOR_PWM(2)"'];\
         document.getElementById('PWM3').innerHTML=getData['"SENSOR_PWM(3)"'];\
         if (!pwm3edit) document.getElementById('PWM3set').value=getData['"SENSOR_PWM(3)"'];\n\
-        for( i=0; i< 7; i++){\
+        for( i=0; i< " XSTR(INA_COUNT) "; i++){\
           document.getElementById('VL'+i).innerHTML=getData['"SENSOR_INA_VOLTAGE_PREFIX"'+i];\
           document.getElementById('CR'+i).innerHTML=getData['"SENSOR_INA_CURRENT_PREFIX"'+i];\
           document.getElementById('PW'+i).innerHTML=getData['"SENSOR_INA_POWER_PREFIX"'+i];\
         }\n\
-        document.getElementById('BTN').innerHTML=getData['"SENSOR_BUTTON_STATUS"'];\
-        document.getElementById('EHF').innerHTML=getData['"SENSOR_EMERGENCY_HALT_FIRED"'];\
-        document.getElementById('SSR').innerHTML=getData['"SENSOR_SOFTSTOP_NEED_TO_START"'];\
-        document.getElementById('SSF').innerHTML=getData['"SENSOR_SOFTSTOP_FIRED"'];\n\
-        for (i=0; i<=7; i++){\
-          if (getData['"SENSOR_LED_COLOR"']==i && getData['"SENSOR_LED_STATUS"']==1)\
-            document.getElementById('LEC'+getData['"SENSOR_LED_COLOR"']).style.backgroundColor = '#AAAAAA';\
-          else\
-            document.getElementById('LEC'+i).style.backgroundColor = '#FFFFFF';\
-        };\n\
         document.getElementById('ERR').innerHTML=getData['"SENSOR_ERROR_STATUS"'] + ' [' + getData['"SENSOR_ERROR_DETAILS_STRING"'] + ']';\
-        for (i=0; i<=5; i++){\
+        for (i=0; i<=4; i++){\
           document.getElementById('ERR'+i).innerHTML=getData['"SENSOR_ERROR_DETAILS_STRING"'].charAt(i);\
           document.getElementById('ERR'+i).style.backgroundColor = ((getData['"SENSOR_ERROR_DETAILS_STRING"'].charAt(i)=='1') ? '#b5262b' : '#FFFFFF');\
         }\n\
-        for (i=0; i<=6; i++){\
-          document.getElementById('ERRINA'+i).innerHTML=getData['"SENSOR_ERROR_DETAILS_STRING"'].charAt(i+7);\
+        for (i=0; i<"XSTR(INA_COUNT)"; i++){\
+          document.getElementById('ERRINA'+i).innerHTML=getData['"SENSOR_ERROR_DETAILS_STRING"'].charAt(i+6);\
         }\n\
         document.getElementById('RTM').innerHTML=getData['" SENSOR_ESP_RUNTIME "'];\
         document.getElementById('MEM').innerHTML=getData['" SENSOR_ESP_FREE_MEMORY "'];\
@@ -423,13 +302,9 @@ void handleRoot() {
     page = FPSTR(HTTP_HTML_HEADER);
     page1 = FPSTR(HTTP_HTML_RELAYTABLE1);
     page +=page1;
-    page1 = FPSTR(HTTP_HTML_RELAYTABLE2);
-    page +=page1;
     page1 = FPSTR(HTTP_HTML_SENSTABLE);
     page +=page1;
     page1 = FPSTR(HTTP_HTML_PWM);
-    page +=page1;
-    page1 = FPSTR(HTTP_HTML_BUTTON);
     page +=page1;
 
     page1 = FPSTR(HTTP_HTML_SENSORS_HEAD);
@@ -445,8 +320,6 @@ void handleRoot() {
     page1 = FPSTR(HTTP_HTML_SENSORS_FOOTER);
     page +=page1;
     
-    page1 = FPSTR(HTTP_HTML_LEDTABLE);
-    page +=page1;
     page1 = FPSTR(HTTP_HTML_ERROR);
     page +=page1;
   

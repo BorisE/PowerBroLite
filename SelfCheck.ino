@@ -25,7 +25,16 @@
  *      - 
  *      INA0...INA6
  */
-
+/* new format [!ERS:00022-0]
+ *    [0] checkStatusMCP1
+ *    [0] checkStatusINA
+ *    [0] checkStatusMEM
+ *    [0] checkStatusMEM
+ *    [2] checkStatusMLX
+ *    [2] checkStatusSHT
+ *    -
+ *    INA0
+ */
 
 int selfCheckHardware()
 {

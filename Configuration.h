@@ -77,16 +77,6 @@ uint8_t RELAY1_ON_STATE[7] {
     LOW,                                                                      // Channel 5
     HIGH,                                                                     // Channel 6
 };
-// which state correspondes to ON (CLOSED) state of relay2
-uint8_t RELAY2_ON_STATE[7] {
-    0,                                                                        // DUMMY element (array index starts from 0)
-    LOW,                                                                      // Channel 1
-    LOW,                                                                      // Channel 2
-    LOW,                                                                      // Channel 3
-    LOW,                                                                      // Channel 4
-    LOW,                                                                      // Channel 5
-    LOW,                                                                      // Channel 6
-};
 
 /*************************************************************
 * INA SENSOR SETTING
@@ -121,8 +111,8 @@ INA219 INA_OBJ[] {
 *************************************************************/
 #define OTA_PORT                                    18266                     // OTA PORT
 
-const char* host                                    = "powerbox";             // used in MNDS and update server
-const char* APName                                  = "PowerBox";             // IOTWC AP name when no wifi connection is found
+const char* host                                    = "powerbrolite";         // used in MNDS and update server
+const char* APName                                  = "PowerBro";             // IOTWC AP name when no wifi connection is found
 const char* APPass                                  = "12345678";             // IOTWC AP password
 #define IOTWC_CONFIG_VERSION                        "v3"                      // Config version to store in EEPROM by IOTWC.
 #define IOTWC_WAIT_FOR_WIFI_CONNECTION              20000                     // How long wait when there is no wifi connection before creating AP, msec (give a chance to reconnect)

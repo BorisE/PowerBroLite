@@ -4,16 +4,19 @@
     HW rev 2.0 lite
 
     TODO:
-      - webpage optimization to lite HW architecture
       - code optimization after removing unused blocks (relay block, button vars and emergency routines)
       - return something like "main led" (to HW and then to code)
       - return PWM block
     
     Changes:
+       ver 0.3 2022/08/24 [386853/35824]
+       - web page uodated to lite 
+       - selfcheck updated
+       - some more code cleanup
        ver 0.2 2022/08/22 [391937/35836]
        - some more cleanup. Code runs!
        ver 0.1 2022/08/22 [388028/35436]
-       - starting from fw 2.9
+       - starting from fw 2.9 402301/36464
        - removed button events and all stuff
        - removed main led routines
        - one MCP, and one relay block
@@ -21,8 +24,8 @@
 */
 
 //Compile version
-#define VERSION "0.2"
-#define VERSION_DATE "20220822"
+#define VERSION "0.3"
+#define VERSION_DATE "20220824"
  
 #include <Ticker.h>
 #include <Wire.h>
