@@ -6,7 +6,7 @@ const char HTTP_HTML_HEADER[] PROGMEM = "<!DOCTYPE html>\
 <head>\
 <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\
 <meta charset=\"utf-8\">\
-<title>Power Box</title>\n\
+<title>Power Bro Lite</title>\n\
 <style>\
 table {  width: 100%;  max-width: 400px;   min-width: 200px; border: 1px solid #1C6EA4;  text-align: center;  border-collapse: collapse;  margin-left:auto;   margin-right:auto; }\n\
 table td, table th {  border: 1px solid #AAAAAA;  padding: 3px 2px; min-width: 30px }\n\
@@ -19,14 +19,14 @@ input  { width: 50px }\n\
 <script></script>\n\
 </head>\n\
 <body style=\"text-align:center\" onload='load()'>\n\
-<h1>Power Box</h1>\
+<h1>Power Bro Lite</h1>\
 <p id='connectionstat'></p>\
 \n";
 
 /*
  * TEMPLATE FOOTER
  */
-const char HTTP_HTML_FOOTER[] PROGMEM = "<p class='footer'>PowerBox v{Ver} [{VDate}]. Passed since start: <span class='footer'><span id='RTM'>{RTM}</span><br>Free mem: <span id='MEM'>{MEM}</span> | SSID: <span id='SSID'>{SSID}</span> | RSSI: <span id='NTR'>{NTR}</span> | WiFi channel: <span id='NTC'>{NTC}</span> | IP: <span id='IP'>{IP}</span> | MAC: <span id='MAC'>{MAC}</span></p><p class='footer'><a href=/config>CONFIG</a> | <a href='javascript:;' onclick=\"commandSend('"CMD_ESP_REBOOT"');\">REBOOT</a> | <a href=/update>UPDATE</a></p><div id='jdebug'></div><div id='debug'></div><p id='debug2'></p>";
+const char HTTP_HTML_FOOTER[] PROGMEM = "<p class='footer'>PowerBro v{Ver} [{VDate}]. Passed since start: <span class='footer'><span id='RTM'>{RTM}</span><br>Free mem: <span id='MEM'>{MEM}</span> | SSID: <span id='SSID'>{SSID}</span> | RSSI: <span id='NTR'>{NTR}</span> | WiFi channel: <span id='NTC'>{NTC}</span> | IP: <span id='IP'>{IP}</span> | MAC: <span id='MAC'>{MAC}</span></p><p class='footer'><a href=/config>CONFIG</a> | <a href='javascript:;' onclick=\"commandSend('"CMD_ESP_REBOOT"');\">REBOOT</a> | <a href=/update>UPDATE</a></p><div id='jdebug'></div><div id='debug'></div><p id='debug2'></p>";
 const char HTTP_HTML_END[] PROGMEM = "</body></html>";
 
 /*
@@ -295,7 +295,7 @@ void handleRoot() {
   if ( ServerIP == WiFi.softAPIP())
   {
       page = "<!DOCTYPE html><html lang=\"en\"><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=no\"/>";
-      page += "<title>PowerBox Config Portal</title></head><body>";
+      page += "<title>PowerBro Config Portal</title></head><body>";
       page += "Go to <a href='config'>configure page</a> to change settings.";
       page += "</body></html>\n";
   } else {

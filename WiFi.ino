@@ -25,7 +25,7 @@ void Network_Connected()
       MDNS.addService("http", "tcp", 80);
       Serial.print(F("[NET] Open http://"));
       Serial.print(host);
-      Serial.println(F(".local to access PowerBox interface"));
+      Serial.println(F(".local to access PowerBro interface"));
     } else {
       Serial.println(F("[NET] Couldn't start MDNS server"));
     }

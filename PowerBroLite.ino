@@ -9,6 +9,8 @@
       - return PWM block
     
     Changes:
+       ver 0.3a 2022/08/24 [386873/35824]
+       - change PowerBox to PowerBro everywhere
        ver 0.3 2022/08/24 [386853/35824]
        - web page uodated to lite 
        - selfcheck updated
@@ -24,7 +26,7 @@
 */
 
 //Compile version
-#define VERSION "0.3"
+#define VERSION "0.3a"
 #define VERSION_DATE "20220824"
  
 #include <Ticker.h>
@@ -148,7 +150,7 @@ void setup() {
     printBoardInfo();
 
     // Greeting message
-    Serial.println(F("POWER BOX"));
+    Serial.println(F("POWER BRO LITE"));
     Serial.print ("v");
     Serial.print (VERSION);
     Serial.print (" [");
