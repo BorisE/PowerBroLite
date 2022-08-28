@@ -4,6 +4,7 @@
     HW rev 2.0 lite
 
     TODO:
+      - initial relay values doesn't work when set to HIGH
       - code optimization after removing unused blocks (relay block, button vars and emergency routines)
       - return something like "main led" (to HW and then to code)
       - return PWM block

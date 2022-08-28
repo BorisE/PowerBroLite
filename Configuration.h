@@ -75,7 +75,7 @@ uint8_t RELAY1_ON_STATE[7] {
     LOW,                                                                      // Channel 3
     LOW,                                                                      // Channel 4
     LOW,                                                                      // Channel 5
-    HIGH,                                                                     // Channel 6
+    LOW,                                                                     // Channel 6
 };
 
 /*************************************************************

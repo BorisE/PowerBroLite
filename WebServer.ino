@@ -26,7 +26,7 @@ input  { width: 50px }\n\
 /*
  * TEMPLATE FOOTER
  */
-const char HTTP_HTML_FOOTER[] PROGMEM = "<p class='footer'>PowerBro v{Ver} [{VDate}]. Passed since start: <span class='footer'><span id='RTM'>{RTM}</span><br>Free mem: <span id='MEM'>{MEM}</span> | SSID: <span id='SSID'>{SSID}</span> | RSSI: <span id='NTR'>{NTR}</span> | WiFi channel: <span id='NTC'>{NTC}</span> | IP: <span id='IP'>{IP}</span> | MAC: <span id='MAC'>{MAC}</span></p><p class='footer'><a href=/config>CONFIG</a> | <a href='javascript:;' onclick=\"commandSend('"CMD_ESP_REBOOT"');\">REBOOT</a> | <a href=/update>UPDATE</a></p><div id='jdebug'></div><div id='debug'></div><p id='debug2'></p>";
+const char HTTP_HTML_FOOTER[] PROGMEM = "<p class='footer'>PowerBro Lite v{Ver} [{VDate}]. Passed since start: <span class='footer'><span id='RTM'>{RTM}</span><br>Free mem: <span id='MEM'>{MEM}</span> | SSID: <span id='SSID'>{SSID}</span> | RSSI: <span id='NTR'>{NTR}</span> | WiFi channel: <span id='NTC'>{NTC}</span> | IP: <span id='IP'>{IP}</span> | MAC: <span id='MAC'>{MAC}</span></p><p class='footer'><a href=/config>CONFIG</a> | <a href='javascript:;' onclick=\"commandSend('"CMD_ESP_REBOOT"');\">REBOOT</a> | <a href=/update>UPDATE</a></p><div id='jdebug'></div><div id='debug'></div><p id='debug2'></p>";
 const char HTTP_HTML_END[] PROGMEM = "</body></html>";
 
 /*
